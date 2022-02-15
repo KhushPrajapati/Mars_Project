@@ -74,14 +74,14 @@ namespace Mars_QA.SpecFlow
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("[Add Seller education detail]")]
+        [NUnit.Framework.DescriptionAttribute("[Add Seller Certifications detail]")]
         [NUnit.Framework.CategoryAttribute("Certifications")]
-        public virtual void AddSellerEducationDetail()
+        public virtual void AddSellerCertificationsDetail()
         {
             string[] tagsOfScenario = new string[] {
                     "Certifications"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[Add Seller education detail]", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[Add Seller Certifications detail]", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

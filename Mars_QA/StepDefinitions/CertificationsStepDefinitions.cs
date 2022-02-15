@@ -31,8 +31,12 @@ namespace Mars_QA.StepDefinitions
         public void ThenSellerShouldAddCertificationsSuccessfully()
         {
             string actualCertificate = certificateobj.GetCertificate(driver);
+            string actualFrom = certificateobj.GetFrom(driver);
+            string actualYear = certificateobj.GetYear(driver);
 
             Assert.That(actualCertificate == "Software Testing", "Actual Certificate and Expected Certificate do not match.");
+            Assert.That(actualFrom == "Industry Connect", "Actual From and Expected From do not match.");
+            Assert.That(actualYear == "2022", "Actual Year and Expected Year do not match.");
         }
     }
 }

@@ -31,8 +31,11 @@ namespace Mars_QA.StepDefinitions
         public void ThenSellerShouldAddSkillSuccessfully()
         {
             string actualSkill = skillObj.GetSkill(driver);
+            string actualSkillLevel = skillObj.GetSkillLevel(driver);
 
             Assert.That(actualSkill == "Automation Testing", "Actual Skill and Expected Skill do not match.");
+            Assert.That(actualSkillLevel == "Beginner", "Actual Skill level and Expected Skill level do not match.");
+
         }
     }
 }

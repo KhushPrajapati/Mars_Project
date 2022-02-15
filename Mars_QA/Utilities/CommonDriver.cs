@@ -7,6 +7,7 @@ using Mars_QA.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using TechTalk.SpecFlow;
 #nullable disable
 
 namespace Mars_QA.Utilities
@@ -19,7 +20,7 @@ namespace Mars_QA.Utilities
         public IWebDriver driver;
 
         [OneTimeSetUp]
-
+        //[BeforeScenario]
         public void Initialize()
         {
             //Defining the browser
@@ -31,16 +32,15 @@ namespace Mars_QA.Utilities
             driver.Manage().Window.Maximize();
         }
 
-        //// Open Chrome Browser
-        //driver.Manage().Window.Maximize();
-
-        //// Launch the Portal
-        //driver.Navigate().GoToUrl("http://localhost:5000/Home");
-
+        //[AfterTestRun]
         [OneTimeTearDown]
+
+        //[AfterScenario]
         public void CloseTestRun()
         {
-            driver.Quit();
+            // close the window and release the memory
+            //driver.Quit();
+            driver.Dispose();
         }
     }
 }

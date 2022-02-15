@@ -18,6 +18,10 @@ namespace Mars_QA.Pages
             // Launch the Portal
             driver.Navigate().GoToUrl("http://localhost:5000/Home");
 
+            // Click on Sign in Button
+            IWebElement signinButton = driver.FindElement(By.XPath("//*[@id='home']/div/div/div[1]/div/a"));
+            signinButton.Click();
+
             try
             {
                 // Identify username textbox and enter valid username
