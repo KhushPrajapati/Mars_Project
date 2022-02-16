@@ -21,22 +21,22 @@ namespace Mars_QA.StepDefinitions
             loginpageobj.LoginSteps(driver);
         }
 
-        [When(@"\[I try to add new certifications on profile page]")]
-        public void WhenITryToAddNewCertificationsOnProfilePage()
+        [When(@"\[I try to add new '([^']*)','([^']*)' and '([^']*)' on profile page]")]
+        public void WhenITryToAddNewAndOnProfilePage(string p0, string p1, string p2)
         {
-            certificateobj.AddCertifications(driver);
+            certificateobj.AddCertifications(driver, p0, p1, p2);
         }
 
-        [Then(@"\[Seller should add certifications successfully]")]
-        public void ThenSellerShouldAddCertificationsSuccessfully()
+        [Then(@"\[Seller should add '([^']*)','([^']*)' and '([^']*)' successfully]")]
+        public void ThenSellerShouldAddAndSuccessfully(string p0, string p1, string p2)
         {
-            string actualCertificate = certificateobj.GetCertificate(driver);
-            string actualFrom = certificateobj.GetFrom(driver);
-            string actualYear = certificateobj.GetYear(driver);
+            string actualCertificate = certificateobj.GetCertificate(driver,p0);
+            string actualFrom = certificateobj.GetFrom(driver,p1);
+            string actualYear = certificateobj.GetYear(driver,p2);
 
-            Assert.That(actualCertificate == "Software Testing", "Actual Certificate and Expected Certificate do not match.");
-            Assert.That(actualFrom == "Industry Connect", "Actual From and Expected From do not match.");
-            Assert.That(actualYear == "2022", "Actual Year and Expected Year do not match.");
+            Assert.That(actualCertificate == p0, "Actual Certificate and Expected Certificate do not match.");
+            Assert.That(actualFrom == p1, "Actual From and Expected From do not match.");
+            Assert.That(actualYear == p2, "Actual Year and Expected Year do not match.");
         }
     }
 }

@@ -76,11 +76,20 @@ namespace Mars_QA.SpecFlow
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("[Add Seller Certifications detail]")]
         [NUnit.Framework.CategoryAttribute("Certifications")]
-        public virtual void AddSellerCertificationsDetail()
+        [NUnit.Framework.TestCaseAttribute("Software Testing", "Industry Connect", "2022", null)]
+        public virtual void AddSellerCertificationsDetail(string certificate, string from, string year, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "Certifications"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("certificate", certificate);
+            argumentsOfScenario.Add("from", from);
+            argumentsOfScenario.Add("year", year);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[Add Seller Certifications detail]", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 7
 this.ScenarioInitialize(scenarioInfo);
@@ -106,10 +115,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("[I Logged into Mars portal Certifications page]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
- testRunner.When("[I try to add new certifications on profile page]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("[I try to add new \'{0}\',\'{1}\' and \'{2}\' on profile page]", certificate, from, year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
- testRunner.Then("[Seller should add certifications successfully]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("[Seller should add \'{0}\',\'{1}\' and \'{2}\' successfully]", certificate, from, year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

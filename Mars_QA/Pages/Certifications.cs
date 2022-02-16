@@ -11,7 +11,7 @@ namespace Mars_QA.Pages
 {
     public class Certifications
     {
-        public void AddCertifications(IWebDriver driver)
+        public void AddCertifications(IWebDriver driver, string certificate, string from, string year)
         {
             Thread.Sleep(6000);
 
@@ -26,19 +26,19 @@ namespace Mars_QA.Pages
 
             // Identify Certificate textbox and input name
             IWebElement certificateNameTextbox = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div.row > div.twelve.wide.column.scrollTable > div > div > div:nth-child(1) > div > input"));
-            certificateNameTextbox.SendKeys("Software Testing");
+            certificateNameTextbox.SendKeys(certificate);
             Thread.Sleep(3000);
 
             // Identify Certified from textbox and input name
             IWebElement fromTextbox = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div.row > div.twelve.wide.column.scrollTable > div > div > div:nth-child(2) > div.eight.wide.field > input"));
-            fromTextbox.SendKeys("Industry Connect");
+            fromTextbox.SendKeys(from);
 
             // Select Year from dropdown
             IWebElement yearDropdown = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div.row > div.twelve.wide.column.scrollTable > div > div > div:nth-child(2) > div.three.wide.field > select"));
             yearDropdown.Click();
 
             var SelectElement = new SelectElement(yearDropdown);
-            SelectElement.SelectByValue("2022");
+            SelectElement.SelectByValue(year);
             Thread.Sleep(3000);
 
             // Click on Add button
@@ -47,17 +47,17 @@ namespace Mars_QA.Pages
             Thread.Sleep(5000);
         }
 
-        public string GetCertificate(IWebDriver driver)
+        public string GetCertificate(IWebDriver driver, string cerificate)
         {
             IWebElement actualCertificate = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div.row > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td:nth-child(1)"));
             return actualCertificate.Text;
         }
-        public string GetFrom(IWebDriver driver)
+        public string GetFrom(IWebDriver driver, string from)
         {
             IWebElement actualFrom = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div.row > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td:nth-child(2)"));
             return actualFrom.Text;
         }
-        public string GetYear(IWebDriver driver)
+        public string GetYear(IWebDriver driver, string year)
         {
             IWebElement actualYear = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div.row > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td:nth-child(3)"));
             return actualYear.Text;

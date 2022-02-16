@@ -3,7 +3,11 @@
 	I would like to add,edit and delete my skills
 
 @Skills
-Scenario: [Add Seller skill detail]
+Scenario Outline: [Add Seller skill detail]
 	Given [I Logged into Mars portal Skill page]
-	When [I try to add new Skill on profile page]
-	Then [Seller should add Skill successfully]
+	When [I add new '<Skill>' and '<level>' on profile page]
+	Then [Seller should add '<Skill>' and '<level>' successfully]
+
+Examples: 
+	| Skill        | level    |
+	| Test Analyst | Beginner |

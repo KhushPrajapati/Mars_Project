@@ -5,10 +5,10 @@
 @Languages
 Scenario Outline: [Add Seller language detail]
 	Given [I Logged into Mars portal Language page]
-	When [I try to add new Language on profile page]
-	Then [The record should have an updated]
+	When [I try to add new '<Language>' and '<Level>' on profile page]
+	Then [The record should have an updated for '<Language>' and '<Level>']
 
-#Examples: 
-#	| Language | Level            |
-#	| English  | Conversational   |
-#	| Hindi    | Native/Bilingual |
+Examples: 
+	| Language | Level            |
+	| English  | Conversational   |
+	#| Hindi    | Native/Bilingual |

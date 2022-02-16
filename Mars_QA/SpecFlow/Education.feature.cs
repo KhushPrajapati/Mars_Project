@@ -76,11 +76,22 @@ namespace Mars_QA.SpecFlow
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("[Add Seller Education detail]")]
         [NUnit.Framework.CategoryAttribute("Education")]
-        public virtual void AddSellerEducationDetail()
+        [NUnit.Framework.TestCaseAttribute("India", "GTU", "M.Tech", "Masters", "2014", null)]
+        public virtual void AddSellerEducationDetail(string country, string university, string title, string degree, string graduationYear, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "Education"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Country", country);
+            argumentsOfScenario.Add("University", university);
+            argumentsOfScenario.Add("Title", title);
+            argumentsOfScenario.Add("Degree", degree);
+            argumentsOfScenario.Add("GraduationYear", graduationYear);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[Add Seller Education detail]", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 7
 this.ScenarioInitialize(scenarioInfo);
@@ -106,10 +117,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("[I Logged into Mars portal Education page]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
- testRunner.When("[I try to add new Education on profile page]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("[I try to add new \'{0}\',\'{1}\',\'{2}\',\'{3}\'and\'{4}\' on profile page]", country, university, title, degree, graduationYear), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
- testRunner.Then("[Seller should add Education successfully]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("[Seller should add \'{0}\',\'{1}\',\'{2}\',\'{3}\'and\'{4}\' successfully]", country, university, title, degree, graduationYear), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
