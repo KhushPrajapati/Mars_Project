@@ -1,46 +1,82 @@
-﻿using System;
+﻿using Mars_QA.Pages;
+using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using RelevantCodes.ExtentReports;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Mars_QA.Pages;
-using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
-#nullable disable
+using static Mars_QA.Pages.CommonMethods;
+//#nullable disable
 
 namespace Mars_QA.Utilities
 {
-    [TestFixture]
-    [Parallelizable]
-    public class CommonDriver
+    [Binding]
+    public class CommonDriver : Driver
     {
-        // Initialize the Browser
-        public IWebDriver driver;
+      [BeforeTestRun]
+      public static void BeforeTestRun()
+      {
+         ExtentReports();
+      }
 
-        [OneTimeSetUp]
-        //[BeforeScenario]
-        public void Initialize()
-        {
-            //Defining the browser
-            driver = new ChromeDriver();
+      [BeforeFeature]
+      public static void BeforeFeature(FeatureContext context)
+      {
+           test = Extent.StartTest(context.FeatureInfo.Title);
+      }
 
-            driver.Navigate().GoToUrl("http://192.168.99.100:5000");
 
-            //Maximise the window
-            driver.Manage().Window.Maximize();
-        }
+      [BeforeScenario]
+      public void Setup()
+      {
+           //launch the browser
+           Initialize();
+           Thread.Sleep(3000);
 
-        //[AfterTestRun]
-        [OneTimeTearDown]
+            //call the SignIn class
+            LoginPage loginPageObj = new LoginPage();
+            loginPageObj.LoginSteps();
 
-        //[AfterScenario]
-        public void CloseTestRun()
-        {
-            // close the window and release the memory
-            //driver.Quit();
-            driver.Dispose();
-        }
+            //LoginPage.LoginSteps();
+      }
+
+      [AfterScenario]
+      public void TearDown()
+      {
+
+          //Screenshot
+          string img = SaveScreenShotClass.SaveScreenshot(Driver.driver, "Report");
+          test.Log(LogStatus.Info, "Snapshot below: " + test.AddScreenCapture(img));
+
+            //Close the browser
+            Close();
+
+            //end test. (Reports)
+            CommonMethods.Extent.EndTest(test);
+
+            // calling Flush writes everything to the log file (Reports)
+            CommonMethods.Extent.Flush();
+      }
+
     }
 }
+
+//    [BeforeTestRun]
+
+//    public static void BeforeTestRun()
+//    {
+//        ExtentReports();
+//    }
+
+
+//    [BeforeFeature]
+
+//    public static void BeforeFeature(FeatureContext contex)
+//    {
+//        test = Extent.StartTest(contex.FeatureInfo.Title);
+
+//    }

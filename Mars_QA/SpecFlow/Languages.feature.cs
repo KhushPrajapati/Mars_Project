@@ -74,10 +74,10 @@ namespace Mars_QA.SpecFlow
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("[Add Seller language detail]")]
+        [NUnit.Framework.DescriptionAttribute("Add language detail")]
         [NUnit.Framework.CategoryAttribute("Languages")]
         [NUnit.Framework.TestCaseAttribute("English", "Conversational", null)]
-        public virtual void AddSellerLanguageDetail(string language, string level, string[] exampleTags)
+        public virtual void AddLanguageDetail(string language, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "Languages"};
@@ -89,7 +89,7 @@ namespace Mars_QA.SpecFlow
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Language", language);
             argumentsOfScenario.Add("Level", level);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[Add Seller language detail]", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add language detail", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

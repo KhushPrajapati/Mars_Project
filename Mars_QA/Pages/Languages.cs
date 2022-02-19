@@ -13,7 +13,7 @@ namespace Mars_QA.Pages
     {
         public void AddLanguage(IWebDriver driver, string language, string level)
         {
-            Thread.Sleep(3000);
+            Thread.Sleep(4000);
 
             // Click on addnew button
             IWebElement addNewButton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > table > thead > tr > th.right.aligned > div"));

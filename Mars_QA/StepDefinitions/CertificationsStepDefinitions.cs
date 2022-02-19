@@ -16,9 +16,9 @@ namespace Mars_QA.StepDefinitions
         [Given(@"\[I Logged into Mars portal Certifications page]")]
         public void GivenILoggedIntoMarsPortalCertificationsPage()
         {
-            driver = new ChromeDriver();
+            //driver = new ChromeDriver();
 
-            loginpageobj.LoginSteps(driver);
+            loginpageobj.LoginSteps();
         }
 
         [When(@"\[I try to add new '([^']*)','([^']*)' and '([^']*)' on profile page]")]
@@ -30,9 +30,9 @@ namespace Mars_QA.StepDefinitions
         [Then(@"\[Seller should add '([^']*)','([^']*)' and '([^']*)' successfully]")]
         public void ThenSellerShouldAddAndSuccessfully(string p0, string p1, string p2)
         {
-            string actualCertificate = certificateobj.GetCertificate(driver,p0);
-            string actualFrom = certificateobj.GetFrom(driver,p1);
-            string actualYear = certificateobj.GetYear(driver,p2);
+            string actualCertificate = certificateobj.GetCertificate(driver, p0);
+            string actualFrom = certificateobj.GetFrom(driver, p1);
+            string actualYear = certificateobj.GetYear(driver, p2);
 
             Assert.That(actualCertificate == p0, "Actual Certificate and Expected Certificate do not match.");
             Assert.That(actualFrom == p1, "Actual From and Expected From do not match.");

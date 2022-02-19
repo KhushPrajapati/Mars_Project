@@ -16,25 +16,25 @@ namespace Mars_QA.StepDefinitions
         [Given(@"\[I Logged into Mars portal Education page]")]
         public void GivenILoggedIntoMarsPortalEducationPage()
         {
-            driver = new ChromeDriver();
+            //driver = new ChromeDriver();
 
-            loginpageobj.LoginSteps(driver);
+            loginpageobj.LoginSteps();
         }
 
         [When(@"\[I try to add new '([^']*)','([^']*)','([^']*)','([^']*)'and'([^']*)' on profile page]")]
         public void WhenITryToAddNewAndOnProfilePage(string p0, string p1, string p2, string p3, string p4)
         {
-            educationobj.AddEducation(driver, p0,p1,p2,p3,p4);
+            educationobj.AddEducation(driver, p0, p1, p2, p3, p4);
         }
 
         [Then(@"\[Seller should add '([^']*)','([^']*)','([^']*)','([^']*)'and'([^']*)' successfully]")]
         public void ThenSellerShouldAddAndSuccessfully(string p0, string p1, string p2, string p3, string p4)
         {
-            string actualCountry = educationobj.GetCountry(driver,p0);
-            string actualUniversity = educationobj.GetUniversity(driver,p1);
-            string actualTitle = educationobj.GetTitle(driver,p2);
-            string actualDegree = educationobj.GetDegree(driver,p3);
-            string actualGradYear = educationobj.GetGraduationYear(driver,p4);
+            string actualCountry = educationobj.GetCountry(driver, p0);
+            string actualUniversity = educationobj.GetUniversity(driver, p1);
+            string actualTitle = educationobj.GetTitle(driver, p2);
+            string actualDegree = educationobj.GetDegree(driver, p3);
+            string actualGradYear = educationobj.GetGraduationYear(driver, p4);
 
             Assert.That(actualCountry == p0, "Actual Country and Expected Country do not match.");
             Assert.That(actualUniversity == p1, "Actual University and Expected University do not match.");
