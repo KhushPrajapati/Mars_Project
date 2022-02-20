@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Mars_QA.Utilities;
 using OpenQA.Selenium;
 using RelevantCodes.ExtentReports;
 #nullable disable
 
-namespace Mars_QA.Pages
+namespace Mars_QA.Helper
 {
-    public class CommonMethods
+    internal class CommonMethods
     {
         //Screenshots
         #region screenshots
@@ -49,6 +48,7 @@ namespace Mars_QA.Pages
         public static ExtentTest test;
         public static ExtentReports Extent;
 
+
         public static void ExtentReports()
         {
             Extent = new ExtentReports(ConstantUtils.ReportsPath, true, DisplayOrder.NewestFirst);
@@ -58,4 +58,3 @@ namespace Mars_QA.Pages
         #endregion
     }
 }
-

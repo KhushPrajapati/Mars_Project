@@ -1,9 +1,12 @@
 ﻿using System;
+using Mars_QA.Helper;
 using Mars_QA.Pages;
 using Mars_QA.Utilities;
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
+using static Mars_QA.Helper.CommonMethods;
+#nullable disable
 
 namespace Mars_QA.StepDefinitions
 {
@@ -37,6 +40,13 @@ namespace Mars_QA.StepDefinitions
             Assert.That(actualCertificate == p0, "Actual Certificate and Expected Certificate do not match.");
             Assert.That(actualFrom == p1, "Actual From and Expected From do not match.");
             Assert.That(actualYear == p2, "Actual Year and Expected Year do not match.");
+
+            if (actualCertificate == p0 && actualFrom == p1 && actualYear == p2)
+            {
+                CommonMethods.test.Log(RelevantCodes.ExtentReports.LogStatus.Pass, "Test Passed. Certification added");
+                SaveScreenShotClass.SaveScreenshot(Driver.driver, "Cartification Added");
+                Assert.IsTrue(true);
+            }
         }
     }
 }

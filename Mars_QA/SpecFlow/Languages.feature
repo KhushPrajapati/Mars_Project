@@ -1,13 +1,15 @@
-﻿Feature: Languages
-	As a seller
-	I would like to add,edit and delete my language
+﻿Feature: Language add
+As a seller
+I want a feature to add my known languages 
+So that
+People seeking for some skill can look into my detail
 
 @Languages
-Scenario Outline: Add language detail
-	Given [I Logged into Mars portal Language page]
-	When [I try to add new '<Language>' and '<Level>' on profile page]
-	Then [The record should have an updated for '<Language>' and '<Level>']
+Scenario Outline: Add language description with valid details
+    Given I lodged into Mars language portal successfully
+   	When I add '<language>' and '<level>' details
+	Then '<language>' and '<level>' should be able to see on Language profile  page
 
-Examples: 
-	| Language | Level          |
-	| English  | Conversational |
+    Examples: 
+	| language |   level          |
+	| English  |   Conversational |

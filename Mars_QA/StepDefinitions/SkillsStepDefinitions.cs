@@ -1,9 +1,12 @@
 ﻿using System;
+using Mars_QA.Helper;
 using Mars_QA.Pages;
 using Mars_QA.Utilities;
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
+using static Mars_QA.Helper.CommonMethods;
+#nullable disable
 
 namespace Mars_QA.StepDefinitions
 {
@@ -35,6 +38,13 @@ namespace Mars_QA.StepDefinitions
 
             Assert.That(actualSkill == p0, "Actual Skill and Expected Skill do not match.");
             Assert.That(actualSkillLevel == p1, "Actual Skill level and Expected Skill level do not match.");
+
+            if (actualSkill == p0 && actualSkillLevel == p1)
+            {
+                CommonMethods.test.Log(RelevantCodes.ExtentReports.LogStatus.Pass, "Test Passed. Skill added");
+                SaveScreenShotClass.SaveScreenshot(Driver.driver, "Skill Added");
+                Assert.IsTrue(true);
+            }
         }
     }
 }

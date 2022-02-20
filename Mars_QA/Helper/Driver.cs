@@ -7,7 +7,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 #nullable disable
 
-namespace Mars_QA.Pages
+namespace Mars_QA.Helper
 {
     public class Driver
     {
@@ -58,5 +58,6 @@ namespace Mars_QA.Pages
         {
             driver.Close();
         }
+
     }
 }

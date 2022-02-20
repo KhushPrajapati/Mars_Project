@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Mars_QA.Helper;
 #nullable disable
 
 namespace Mars_QA.Pages
@@ -21,7 +22,7 @@ namespace Mars_QA.Pages
             Thread.Sleep(1000);
 
             // Open Chrome Browser
-            //Driver.driver.Manage().Window.Maximize();
+            Driver.driver.Manage().Window.Maximize();
 
             // Launch the Portal
             Driver.driver.Navigate().GoToUrl("http://localhost:5000/Home");

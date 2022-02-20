@@ -8,9 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mars_QA\TestReports\Screenshots\" />
-    <Folder Include="Reports\Screenshots\" />
-    <Folder Include="SpecFlowTests\" />
+    <Compile Remove="Reports\**" />
+    <EmbeddedResource Remove="Reports\**" />
+    <None Remove="Reports\**" />
+    <SpecFlowFeatureFiles Remove="Reports\**" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Reports\**" />
   </ItemGroup>
 
   <ItemGroup>

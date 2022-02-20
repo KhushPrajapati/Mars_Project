@@ -1,9 +1,12 @@
 ﻿using System;
+using Mars_QA.Helper;
 using Mars_QA.Pages;
 using Mars_QA.Utilities;
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
+using static Mars_QA.Helper.CommonMethods;
+#nullable disable
 
 namespace Mars_QA.StepDefinitions
 {
@@ -41,6 +44,13 @@ namespace Mars_QA.StepDefinitions
             Assert.That(actualTitle == p2, "Actual Title and Expected Title do not match.");
             Assert.That(actualDegree == p3, "Actual Degree and Expected Degree do not match.");
             Assert.That(actualGradYear == p4, "Actual Grad year and Expected Grad year do not match.");
+
+            if (actualCountry == p0 && actualUniversity == p1 && actualTitle == p2 && actualDegree == p3 && actualGradYear == p4)
+            {
+                CommonMethods.test.Log(RelevantCodes.ExtentReports.LogStatus.Pass, "Test Passed. Education added");
+                SaveScreenShotClass.SaveScreenshot(Driver.driver, "Education Added");
+                Assert.IsTrue(true);
+            }
         }
     }
 }
